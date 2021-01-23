@@ -1,12 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <amplify-authenticator>
+      <div>
+        <h1>Hey, {{ user.username }}!</h1>
+        <amplify-sign-out></amplify-sign-out>
+      </div>
+    </amplify-authenticator>
   </div>
 </template>
+<script>
+import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
+export default {
+  name: "home",
+  data() {
+    return {
+      user: {}
+    };
+  },
+  created() {
+    onAuthUIStateChange((state, user) => {
+      if (state == AuthState.SignedIn) {
+        this.user = user;
+      }
+    });
+  }
+};
+</script>
 
 <style>
 #app {
