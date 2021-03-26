@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <amplify-authenticator>
-      <div>
+      <div class="center">
         <h1>Hey, {{ user.username }}!</h1>
         <amplify-sign-out></amplify-sign-out>
       </div>
@@ -28,6 +28,11 @@ export default {
 </script>
 
 <style>
+.center {
+  justify-content: center;
+  margin-left: 300px;
+  margin-right: 300px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -7,6 +7,7 @@
 
 <script>
 // @ is an alias to /src
+// @ts-ignore
 import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
